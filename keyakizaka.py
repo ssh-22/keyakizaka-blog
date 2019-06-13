@@ -21,7 +21,7 @@ options = Options()
 # options.binary_location = '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
 
 # headlessモードで起動する
-options.add_argument('--headless')
+# options.add_argument('--headless')
 driver = webdriver.Chrome(options=options)
 
 # 最初に開くページ(クロールの起点となるページ, 欅坂46の公式sブログを想定)
@@ -40,7 +40,10 @@ while True:
     try:
         # ブログを書いたメンバーの名前を取得できるまで待つ    
         wait.until(expected_conditions.presence_of_element_located((By.XPATH, "//div[@class='box-ttl']/p[@class='name']")))
+        # XPATHの場合
         names = driver.find_elements_by_xpath("//div[@class='box-ttl']/p[@class='name']")
+        # CSSセレクタの場合
+        # names = driver.find_elements_by_css_selector('div.box-ttl p.name')
         for name in names:
             for member in members:
                 if member == name.text:
