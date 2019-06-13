@@ -30,7 +30,7 @@ baseUrl = 'http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000'
 # 欅坂ブログのトップページを開く
 driver.get(baseUrl)
 
-# タイトルに日向坂46 公式ブログが含まれていることを確認する
+# タイトルに欅坂46 公式ブログが含まれていることを確認する
 assert '欅坂46 公式ブログ' in driver.title
 
 # 最大10秒待機
